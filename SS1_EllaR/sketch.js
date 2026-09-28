@@ -26,7 +26,7 @@ function draw() {
   fill(212,17,6)
   strokeWeight(3);
   triangle(550, 425, 550, 475, 600, 450);
-
+  
   strokeWeight(2.5);
   line(550, 475, 550, 500);
 
