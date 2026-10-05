@@ -7,15 +7,15 @@ I want to immitate the way that the clouds move, the sun sets, the moon rises, e
 different shapes would be in the sky. I wanted to paint the sky with a sun setting and
 the moon slowly rising. This is the first part of many depictions of the beach at different times of the day.
 
-10/5/2026 - I added commands that created a movement of the sun setting and the moon appearing. I wanted to dive into the setting and rising of the sun/moon.
-This sketch allows the user to observe the transition from day and night and is able to place the moon anywhere they want on the canvas.
+10/5/2026 - I added commands that created a movement of the sun setting and the moon appearing. I wanted to dive into the setting and rising of the sun/moon. 
+This sketch allows the user to observe the tansition from day and night and is able to place the moon anywhere they want on the canvas. 
 INSTRUCTIONS: Observe the transition of the sun to the night sky. Once the night sky appears, you can click anywhere on the canvas to place the moon.
-10/5/2026 - I added commands that would allow the mouse to control the movement of the shapes on the screen.
-In this case, the mouse would control the movement of the sun and the moon.
 */
 
 let x = 0 
 let y = 500
+
+
 
 function setup() {
   createCanvas(700, 700);
