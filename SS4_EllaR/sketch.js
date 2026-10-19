@@ -1,5 +1,8 @@
 /* Ella R. "A day at the beach" 
- 10/19 - 
+ 10/19 - In this sketch, I added an image of a crab that would move across the screen. 
+ When the crab reaches the end of the screen, it will reset to the beginning. Additionally,
+ I added instructions for the user to read at the bottom of the screen on the sand. After 5
+ seconds have passed, the text will disappear. 
 */
 
 let x = 0 
@@ -21,6 +24,9 @@ let dayOrNight;
 //variables for crabimg
 let imgCrab;
 let crabX = 0;
+
+//variable for timing
+let ms;
 
 function preload() {
   imgCrab = loadImage('coconut crab.jpg');
@@ -55,7 +61,8 @@ function setup() {
 
 function draw() {
   background(r, g, b);
-  
+  ms = millis();
+
   //sun moves diagonally up and to the right
   fill(rCircle, gCircle, bCircle);
   strokeWeight(2);
@@ -83,10 +90,22 @@ function draw() {
     fill(237,206,138);
     rect(0, 500, 700, 200);
 
+// text for instructions, disappears after 10 seconds
+if (ms/1000 < 5) {
+    fill(120, 80, 170);
+    textSize(20);
+    textFont("Comic Sans MS");
+    textAlign(CENTER);
+    text("Press 'n' to change the beach to night and 'd' for day", 350, 600);
+}
+
   //image of crab is drawn
-  image(imgCrab, crabX, 420, 100,100);  
-  crabX = crabX + 1; 
+  image(imgCrab, crabX, 420, 100, 100);
+  crabX = crabX + 1;
+  if (crabX > 700) {
+    crabX = 0;
   }
+}
 
 
 //when a key is pressed, it switches between day and night
