@@ -90,7 +90,7 @@ function draw() {
     fill(237,206,138);
     rect(0, 500, 700, 200);
 
-// text for instructions, disappears after 10 seconds
+// text for instructions, disappears after 5 seconds
 if (ms/1000 < 5) {
     fill(120, 80, 170);
     textSize(20);
