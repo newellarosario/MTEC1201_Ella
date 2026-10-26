@@ -1,8 +1,14 @@
 let state = "pregame";
 let turtle;
+let poop;
+let bottle;
+let apple;
 
 function preload() {
   turtle = loadImage("sea_turtle.png");
+  poop = loadImage("poop.png")
+  bottle = loadImage("bottle.png")
+  apple = loadImage("apple.png")
 }
 
 function setup() {
