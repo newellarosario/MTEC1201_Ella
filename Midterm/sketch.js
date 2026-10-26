@@ -1,4 +1,4 @@
-let state = "pregame";
+let state;
 let turtle;
 let poop;
 let bottle;
@@ -14,19 +14,18 @@ function preload() {
 function setup() {
   createCanvas(1000, 1000);
    background(150,230,240);
+   state = "preGame"
 }
 
 function draw() {
-  if (state === "pregame") {
+  if (state === "preGame") {
     preGame();
   }
-  else if (state === "game") {
+  
+  if (state === "game")
     game();
-  }
-  else if (state === "gameover") {
-    gameOver();
 }
-}
+
 
 function preGame() {
     sand();
@@ -36,7 +35,9 @@ function preGame() {
     sandCastle(150, 700, 50, 50);
     openingTitle();
     instructions();
+    image(turtle, 500, 700, 100, 100)
 }
+
  
 function sand() {
   fill(240, 200, 100);
@@ -60,7 +61,7 @@ function openingTitle() {
   textSize(50);
   textAlign(CENTER);
   textFont("Comic Sans MS");
-  text("Save the Turtles!", 500, 100);
+  text("Save the Turtle!", 500, 100);
 }
 
 function instructions() {
@@ -69,7 +70,7 @@ function instructions() {
   textSize(20);
   textAlign(CENTER);
   textFont("Comic Sans MS");
-  text("Use your mouse to drag the turtle around various trash on the beack! Press SPACE to start!", 500, 150);
+  text("Use your mouse to drag the turtle around various trash on the beack! Press 'g' to start!", 500, 150);
 }
 
 function keyPressed() {
