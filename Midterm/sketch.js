@@ -90,18 +90,31 @@ function mousePressed() {
 }
 
 function ocean(OceanX, OceanY, oceanX, oceanY){
+  //add images of ocean things, maybe a star fish? 
   noStroke();
   fill(30,80,200)
   rect(OceanX,OceanY, oceanX, oceanY);
 }
 
 function game() {
+  oceanInstructions();
   background (150,230,240);
   sand(0,750,750,750)
   ocean(750,750,1000,1000); 
+//figure out a way to rotate the turtle
+  image(turtle, mouseX, 700, 100, 100);
   
-  image(turtle, mouseX, mouseY, 100, 100);
+}
 
+function oceanInstructions(){
+  fill(0);
+  noStroke();
+  textSize(10);
+  textAlign(CENTER);
+  textFont("Comic Sans MS");
+  text("Move your mouse to help the turtle avoid the trash on the beach. If you touch the trash, GAME OVER!")
+}
 
-  
+function randomTrash(){
+  random(0,1,2)
 }
