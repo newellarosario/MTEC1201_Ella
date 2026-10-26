@@ -1,9 +1,16 @@
+
+//game stages
 let state;
+
+//game character
 let turtle;
+
+//trash images
 let poop;
 let bottle;
 let apple;
 
+//image preload
 function preload() {
   turtle = loadImage("sea_turtle.png");
   poop = loadImage("poop.png")
@@ -11,38 +18,40 @@ function preload() {
   apple = loadImage("apple.png")
 }
 
+//state starts with pregame and beach background
 function setup() {
   createCanvas(1000, 1000);
    background(150,230,240);
    state = "preGame"
 }
 
+//draw based on the state
 function draw() {
   if (state === "preGame") {
     preGame();
   }
-  
-  if (state === "game")
+  else if (state === "game")
     game();
+  else if (state ==="gameOver")
+    gameOver();
 }
 
 
 function preGame() {
-    sand();
+    sand(0,750, 1000, 1000);
     sandCastle(750, 700, 50, 50);
     sandCastle(800, 650, 50, 100);
     sandCastle(100, 675, 50, 75);
     sandCastle(150, 700, 50, 50);
     openingTitle();
     instructions();
-    image(turtle, 500, 700, 100, 100)
+    image(turtle, 350, 300, 300, 300)
 }
 
- 
-function sand() {
+function sand(SandX, SandY, sandX, sandY) {
   fill(240, 200, 100);
   noStroke();
-  rect(0,750, 1000, 1000);
+  rect(SandX,SandY, sandX, sandY);
 }
 
 function sandCastle(sandCastleX, sandCastleY, length, width) {
@@ -70,26 +79,29 @@ function instructions() {
   textSize(20);
   textAlign(CENTER);
   textFont("Comic Sans MS");
-  text("Use your mouse to drag the turtle around various trash on the beack! Press 'g' to start!", 500, 150);
+  text("Use your mouse to drag the turtle around various trash on the beach! Click the turtle to start!", 500, 150);
 }
 
-function keyPressed() {
-  if (key === 'g') {
-    state === "game"
+//click on turtle, starts game if we are in preGame state
+function mousePressed() {
+  if (state === "preGame" && mouseX >= 350 && mouseX <= 650 && mouseY >= 300 && mouseY <= 600) {
+    state = "game";
   }
-
-
 }
 
-function ocean (){
+function ocean(OceanX, OceanY, oceanX, oceanY){
   noStroke();
-  fill(100,220,225)
-  rect(0,0, 1000, 1000);
+  fill(30,80,200)
+  rect(OceanX,OceanY, oceanX, oceanY);
 }
 
 function game() {
-  background (240, 200, 100);
-  ocean(); 
+  background (150,230,240);
+  sand(0,750,750,750)
+  ocean(750,750,1000,1000); 
+  
   image(turtle, mouseX, mouseY, 100, 100);
+
+
   
 }
