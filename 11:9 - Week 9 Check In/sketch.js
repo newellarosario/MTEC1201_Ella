@@ -1,6 +1,5 @@
 function setup() {
   createCanvas(400,400);
-  
 }
 
 function draw() {
@@ -22,12 +21,7 @@ function draw() {
         fill (200);
       }
       rect (x, y, 50, 50);
-
-
     }
-
-
-
   }
 
 }
