@@ -39,7 +39,7 @@ function draw() {
     let mouseCheck = 0;
     while (mouseCheck < 1) {
       
-      // Checks if mouse is hovering over the circle
+      //checks if mouse is hovering over the circle
       if (mouseX > x - 35 && mouseX < x + 35 &&
           mouseY > y - 35 && mouseY < y + 35) {
 
