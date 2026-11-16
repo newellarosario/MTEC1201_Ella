@@ -35,4 +35,77 @@ function draw() {
     let x = circleXPositions[i];
     let y = circleYPositions[i];
    
-   //fills the circles with the correct color based on the 
+   //fills the circles with the correct color based on the side of the screen and if the mouse is hovering
+    let mouseCheck = 0;
+    while (mouseCheck < 1) {
+      
+      //checks if mouse is hovering over the circle
+      if (mouseX > x - 35 && mouseX < x + 35 &&
+          mouseY > y - 35 && mouseY < y + 35) {
+
+        //day side
+        if (mouseX < 350) {
+          skyCircle(255, 255, 90, 255, x, y, 100);
+        }
+
+        //night side
+        else {
+          skyCircle(190, 190, 200, 255, x, y, 100);
+        }
+      }
+      
+      else {
+        //circle is empty if the mouse is not hovering over it
+        skyCircle(0, 0, 0, 0, x, y, 100);
+      }
+      break; //ends the while loop after the first iteration
+    }
+  }
+
+  sand();
+  instructions();
+  
+}
+
+//circles
+function skyCircle(r, g, b, a, x, y, Radius) {
+  fill(r, g, b, a);
+  stroke("white");
+  strokeWeight(2);
+  circle(x, y, Radius);
+}
+
+//draws the sky background
+function skyBackground(r, g, b, x, y, w, h) {
+  noStroke();
+  fill(r, g, b);
+  rect(x, y, w, h);
+}
+
+//sand on the beach
+function sand() {
+  noStroke();
+  fill(237, 206, 138);
+  rect(0, 500, 700, 200);
+}
+
+function instructions() {
+  textAlign(CENTER, CENTER);
+  textSize(25);
+  textStyle(BOLD);
+  textFont("Comic Sans MS");
+  fill(120, 75, 35);
+  text("Hover over the circles to activate the sun and moon!", 350, 600);
+}
+
+//clouds are drawn
+function clouds(cloudX, cloudY, cloudLength, cloudWidth) {
+  fill(225, 230 ,230);
+  noStroke();
+  rect(cloudX, cloudY, cloudLength, cloudWidth);
+  circle(cloudX , cloudY + cloudWidth/2, cloudWidth); //left most circle
+  circle(cloudX + cloudLength, cloudY + cloudWidth/2, cloudWidth); // right most circle
+  circle(cloudX + cloudLength/2, cloudY - cloudWidth/4, cloudLength/2); //middle circle
+  circle(cloudX + cloudLength/4, cloudY, cloudLength/2); //2nd left circle
+  circle(cloudX + cloudLength*.75, cloudY, cloudLength/2); //2nd right circle
+}
